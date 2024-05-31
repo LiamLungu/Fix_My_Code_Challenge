@@ -1,24 +1,27 @@
 #!/usr/bin/node
 /*
     Print a square with the character #
-
+    
     The size of the square must be the first argument 
     of the program.
 */
 
-
+// Check if size argument is provided
 if (process.argv.length <= 2) {
-    process.stderr.write("Missing argument\n");
-    process.stderr.write("Usage: ./1-print_square.js <size>\n");
-    process.stderr.write("Example: ./1-print_square.js 8\n");
-    process.exit(1)
+    console.error("You forgot to tell me how big to make the square!");
+    console.error("Usage: ./1-print_square.js <size>");
+    console.error("Example: ./1-print_square.js 8");
+    process.exit(1);
 }
 
-size = parseInt(process.argv[2], 10)
+// Convert the size argument to a number
+const size = parseInt(process.argv[2]);
 
-for (let i = 0 ; i < size ; i ++) {
-    for (let j = 0 ; j < size ; j ++) {
-        process.stdout.write("#");
+// Print the square
+for (let i = 0; i < size; i++) {
+    let line = "";
+    for (let j = 0; j < size; j++) {
+        line += "#"; // Add a '#' to the line
     }
-    process.stdout.write("\n");
+    console.log(line); // Print the line
 }
